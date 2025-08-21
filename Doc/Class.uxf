@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>520</y>
+      <w>370</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;class&gt;&gt;
+DialogTestBench
+--
++m_pMainWnd: CDialogTestBenchDlg* {composite}
+--
+/+InitInstance(): BOOL/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>440</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;class&gt;&gt;
+CPopupDialog
+--
+-m_pTestDialog:CDialogEx
+--
+#Operation(i: int): int
+/+RunAllTests():void/
+--
+Responsibilities
+-- Resp1
+-- Resp2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>700</y>
+      <w>320</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;class&gt;&gt;
+CDialogTestBenchDlg
+--
+-m_pPopupDialog: CPopupDialog  {composite}
+--
+- TestInitialState():void
+- TestButtonClick():void
+- TestModalExecution():void
+- TestParentRelationship():void
++ RunAllTests():void
++ OnBnClickedOpenPopupDialog():void
++ OnBnClickedRunTests():void
+--
+Responsibilities
+-- supply test function for popup dialog
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>730</y>
+      <w>250</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;class&gt;&gt;
+CSearchDialog
+--
+-id: Long {composite}
+_-ClassAttribute: Long_
+--
+- TestInitialState():void
+- TestButtonClick():void
+- TestModalExecution():void
+- TestParentRelationship():void
++ RunAllTests():void
+--
+Responsibilities
+-- supply test function for popup dialog
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>470</y>
+      <w>110</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>590</y>
+      <w>220</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;20.0;200.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>870</x>
+      <y>190</y>
+      <w>220</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>170</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>CDialogEx</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>970</x>
+      <y>480</y>
+      <w>320</w>
+      <h>530</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;library&gt;&gt;
+DeviceScanner
+bg=yellow
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>460</y>
+      <w>450</w>
+      <h>590</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;application&gt;&gt;
+DialogTestBench
+bg=yellow
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>190</y>
+      <w>220</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>780</x>
+      <y>90</y>
+      <w>210</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>/DialogTester/
+-
+- TestInitialState():void
+- TestButtonClick():void
+- TestModalExecution():void
+- TestParentRelationship():void
++ RunAllTests():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>650</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
