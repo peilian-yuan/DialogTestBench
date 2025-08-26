@@ -7,20 +7,26 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DialogTestBench", "DialogTe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DeviceScanner", "..\DeviceScanner\DeviceScanner.vcxproj", "{CF5D91CE-F685-430C-96DE-F303E8CF80B4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{1723FD3C-92BD-E27E-67A3-92BABFB90E1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Win32 = Debug|Win32
+		DlgDebug|Win32 = DlgDebug|Win32
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3D802092-0B30-F9BD-CAB5-B486C6388B37}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3D802092-0B30-F9BD-CAB5-B486C6388B37}.Debug|Win32.Build.0 = Debug|Win32
+		{3D802092-0B30-F9BD-CAB5-B486C6388B37}.DlgDebug|Win32.ActiveCfg = DlgDebug|Win32
+		{3D802092-0B30-F9BD-CAB5-B486C6388B37}.DlgDebug|Win32.Build.0 = DlgDebug|Win32
 		{3D802092-0B30-F9BD-CAB5-B486C6388B37}.Release|Win32.ActiveCfg = Release|Win32
 		{3D802092-0B30-F9BD-CAB5-B486C6388B37}.Release|Win32.Build.0 = Release|Win32
-		{CF5D91CE-F685-430C-96DE-F303E8CF80B4}.Debug|Win32.ActiveCfg = DlgDebug|Win32
-		{CF5D91CE-F685-430C-96DE-F303E8CF80B4}.Debug|Win32.Build.0 = DlgDebug|Win32
+		{CF5D91CE-F685-430C-96DE-F303E8CF80B4}.DlgDebug|Win32.ActiveCfg = DlgDebug|Win32
+		{CF5D91CE-F685-430C-96DE-F303E8CF80B4}.DlgDebug|Win32.Build.0 = DlgDebug|Win32
 		{CF5D91CE-F685-430C-96DE-F303E8CF80B4}.Release|Win32.ActiveCfg = Release|Win32
 		{CF5D91CE-F685-430C-96DE-F303E8CF80B4}.Release|Win32.Build.0 = Release|Win32
+		{1723FD3C-92BD-E27E-67A3-92BABFB90E1A}.DlgDebug|Win32.ActiveCfg = DlgDebug|Win32
+		{1723FD3C-92BD-E27E-67A3-92BABFB90E1A}.DlgDebug|Win32.Build.0 = DlgDebug|Win32
+		{1723FD3C-92BD-E27E-67A3-92BABFB90E1A}.Release|Win32.ActiveCfg = Release|Win32
+		{1723FD3C-92BD-E27E-67A3-92BABFB90E1A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

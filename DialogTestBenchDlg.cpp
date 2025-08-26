@@ -161,21 +161,26 @@ HCURSOR CDialogTestBenchDlg::OnQueryDragIcon()
 void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 {
 	// Erstellen Sie das Popup-Dialogfeld und zeigen Sie es an, Parameter ist Instanz von CDialogTestBenchDlg als Elternfenster
-	//SendMessage(MSG_SHOW_DIALOG, 0, LPARAM(this));
 	CSearchDialog dlg(AfxGetMainWnd());
 	// Erstellen und anzeigen Sie das Popup-Dialogfeld
 	INT_PTR nResponse = dlg.DoModal();
 
 	if (nResponse == IDOK)
 	{
-		AfxMessageBox(_T("Tested Popup Dialog is closed with OK"));
+		if (dlg.HasResult())
+		{
+			SELECTED_RESULT result = dlg.GetSelectedResult();
+			CString msg;
+			msg.Format(_T("Selected Port: %s\nDevice ID: %s\nSerial Number: %s"),
+				result.portName, result.devId, result.sn);
+			AfxMessageBox(msg);
+		}
+		else
+			AfxMessageBox(_T("No result found!"));
 	}
-	//else {
-	//	AfxMessageBox(_T("Popup canceled"));
-	//}
 }
 
 void CDialogTestBenchDlg::OnBnClickedRunTests()
 {
-	SendMessage(MSG_TEST_ALL, 0, LPARAM(this));
+	SendMessage(WM_TEST_ALL, 0, LPARAM(this));
 }

@@ -8,7 +8,6 @@
 #define IDD_DIALOGTESTBENCH_DIALOG      102
 #define IDR_MAINFRAME                   128
 #define IDC_OPEN_POPUP_DIALOG           1000
-#define IDC_BUTTON2                     1001
 #define IDC_RUN_TESTS                   1001
 
 // Next default values for new objects
