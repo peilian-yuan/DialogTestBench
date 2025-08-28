@@ -9,7 +9,6 @@
 class CPopupDialog; // Vorwärtsdeklaration für das Popup-Dialogfeld
 class CDialogTestBenchDlg : public CDialogEx
 {
-// Konstruktion
 public:
 	CDialogTestBenchDlg(CWnd* pParent = nullptr);	// Standardkonstruktor
 

@@ -9,5 +9,5 @@
 
 // Fügen Sie hier Header hinzu, die vorkompiliert werden sollen.
 #include "framework.h"
-
+#include <afxwin1.inl>
 #endif //PCH_H
