@@ -9,6 +9,7 @@
 class CPopupDialog; // Vorwärtsdeklaration für das Popup-Dialogfeld
 class CDialogTestBenchDlg : public CDialogEx
 {
+	bool m_bPercent;
 public:
 	CDialogTestBenchDlg(CWnd* pParent = nullptr);	// Standardkonstruktor
 
@@ -16,13 +17,13 @@ public:
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_DIALOGTESTBENCH_DIALOG };
 #endif
-
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV-Unterstützung
-
+	void SetShowPercent(bool b) { m_bPercent = b; }
+	bool GetShowPercent() const { return m_bPercent; }
 
 // Implementierung
 protected:
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV-Unterstützung
+
 	HICON m_hIcon;
 	CPopupDialog* m_pPopupDialog; // Zeiger auf das Popup-Dialogfeld
 

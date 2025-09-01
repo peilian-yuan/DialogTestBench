@@ -70,8 +70,43 @@ BOOL CDialogTestBenchApp::InitInstance()
 	// TODO: Ändern Sie diese Zeichenfolge entsprechend,
 	// z.B. zum Namen Ihrer Firma oder Organisation.
 	SetRegistryKey(_T("Vom lokalen Anwendungs-Assistenten generierte Anwendungen"));
+	
+	// Argumente der Befehlszeile abrufen
+	TCHAR* pCommandLine = ::GetCommandLine();
+	int nArgc = 0;
+	LPWSTR* pArgv = ::CommandLineToArgvW(pCommandLine, &nArgc);
+	bool bPercent = true;
+	if (nArgc > 1)
+	{
+		// Es wurden Befehlszeilenargumente übergeben
+		// Das erste Argument (pArgv[0]) ist der Programmname
+		// Weitere Argumente können hier verarbeitet werden
+		for (int i = 1; i < nArgc; ++i)
+		{
+			// Beispiel: Argumente ausgeben
+			TRACE(_T("Argument %d: %s\n"), i, pArgv[i]);
+			if (pArgv[i][0] == L'-')
+			{
+				// Schalter erkannt
+				if (_wcsicmp(&pArgv[i][1], L"p") == 0)
+				{
+					bPercent = true;
+				}
+			}
+			else
+			{
+				// Normales Argument
+			}
+			// Hier können Sie die Argumente weiterverarbeiten
+		}
+	}
+	else
+	{
+		bPercent = false;
+	}
 
 	CDialogTestBenchDlg dlg;
+	dlg.SetShowPercent(bPercent);
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

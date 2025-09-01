@@ -274,6 +274,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\DeviceScanner\resource1.h" />
     <ClInclude Include="CPopupDialogTester.h" />
     <ClInclude Include="DialogTestBench.h" />
     <ClInclude Include="DialogTestBenchDlg.h" />
@@ -296,6 +297,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ResourceCompile Include="..\DeviceScanner\dialog.rc" />
     <ResourceCompile Include="DialogTestBench.rc" />
   </ItemGroup>
   <ItemGroup>

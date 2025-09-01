@@ -54,6 +54,7 @@ END_MESSAGE_MAP()
 CDialogTestBenchDlg::CDialogTestBenchDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_DIALOGTESTBENCH_DIALOG, pParent)
 	, m_pPopupDialog(nullptr)
+	, m_bPercent(false)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -163,6 +164,7 @@ void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 	// Erstellen Sie das Popup-Dialogfeld und zeigen Sie es an, Parameter ist Instanz von CDialogTestBenchDlg als Elternfenster
 	CSearchDialog dlg(AfxGetMainWnd());
 	// Erstellen und anzeigen Sie das Popup-Dialogfeld
+	dlg.SetShowPercent(m_bPercent);
 	INT_PTR nResponse = dlg.DoModal();
 
 	if (nResponse == IDOK)
