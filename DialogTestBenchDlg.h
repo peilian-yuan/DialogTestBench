@@ -10,6 +10,7 @@ class CPopupDialog; // Vorwärtsdeklaration für das Popup-Dialogfeld
 class CDialogTestBenchDlg : public CDialogEx
 {
 	bool m_bPercent;
+	bool m_bIpScan;
 public:
 	CDialogTestBenchDlg(CWnd* pParent = nullptr);	// Standardkonstruktor
 
@@ -19,6 +20,8 @@ public:
 #endif
 	void SetShowPercent(bool b) { m_bPercent = b; }
 	bool GetShowPercent() const { return m_bPercent; }
+	void SetIpScan(bool b) { m_bIpScan = b; }
+	bool IsIpScan() const { return m_bIpScan; }
 
 // Implementierung
 protected:

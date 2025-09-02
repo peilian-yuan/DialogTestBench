@@ -165,6 +165,7 @@ void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 	CSearchDialog dlg(AfxGetMainWnd());
 	// Erstellen und anzeigen Sie das Popup-Dialogfeld
 	dlg.SetShowPercent(m_bPercent);
+	dlg.SetSearchType(static_cast<SEARCH_TYPE>(IsIpScan()));
 	INT_PTR nResponse = dlg.DoModal();
 
 	if (nResponse == IDOK)
@@ -173,8 +174,12 @@ void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 		{
 			SELECTED_RESULT result = dlg.GetSelectedResult();
 			CString msg;
-			msg.Format(_T("Selected Port: %s\nDevice ID: %s\nSerial Number: %s"),
-				result.portName, result.devId, result.sn);
+			if (IsIpScan())
+				msg.Format(_T("Selected IP: %s\nDevice ID: %s\nSerial Number: %s"),
+					result.portName, result.devId, result.sn);
+			else
+				msg.Format(_T("Selected Port: %s\nDevice ID: %s\nSerial Number: %s"),
+					result.portName, result.devId, result.sn);
 			AfxMessageBox(msg);
 		}
 		else

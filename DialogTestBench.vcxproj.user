@@ -4,7 +4,7 @@
     <RESOURCE_FILE>DialogTestBench.rc</RESOURCE_FILE>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DlgDebug|Win32'">
-    <LocalDebuggerCommandArguments>-p</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-i -p</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

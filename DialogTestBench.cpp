@@ -75,7 +75,8 @@ BOOL CDialogTestBenchApp::InitInstance()
 	TCHAR* pCommandLine = ::GetCommandLine();
 	int nArgc = 0;
 	LPWSTR* pArgv = ::CommandLineToArgvW(pCommandLine, &nArgc);
-	bool bPercent = true;
+	bool bPercent = false;
+	bool bIpScan = true;
 	if (nArgc > 1)
 	{
 		// Es wurden Befehlszeilenargumente übergeben
@@ -92,6 +93,18 @@ BOOL CDialogTestBenchApp::InitInstance()
 				{
 					bPercent = true;
 				}
+				else if (_wcsicmp(&pArgv[i][1], L"c") == 0)
+				{
+					bIpScan = false;
+				}
+				else if (_wcsicmp(&pArgv[i][1], L"i") == 0)
+				{
+					bIpScan = true; // IP-Scan
+				}
+				else
+				{
+					// Unbekannter Schalter
+				}
 			}
 			else
 			{
@@ -107,6 +120,7 @@ BOOL CDialogTestBenchApp::InitInstance()
 
 	CDialogTestBenchDlg dlg;
 	dlg.SetShowPercent(bPercent);
+	dlg.SetIpScan(bIpScan);
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
