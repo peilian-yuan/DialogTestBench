@@ -204,7 +204,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>PopupDialog.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>AutoDetector.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Midl>
@@ -274,7 +274,6 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\DeviceScanner\resource1.h" />
     <ClInclude Include="CPopupDialogTester.h" />
     <ClInclude Include="DialogTestBench.h" />
     <ClInclude Include="DialogTestBenchDlg.h" />

@@ -36,9 +36,6 @@
     <ClInclude Include="CPopupDialogTester.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="..\DeviceScanner\resource1.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DialogTestBench.cpp">
