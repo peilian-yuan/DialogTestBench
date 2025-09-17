@@ -39,4 +39,5 @@ protected:
 public:
 	afx_msg void OnBnClickedOpenPopupDialog();
 	afx_msg void OnBnClickedRunTests();
+	afx_msg void OnBnClickedOk();
 };

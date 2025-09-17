@@ -8,6 +8,7 @@
 #include "DialogTestBenchDlg.h"
 #include "CSearchDialog.h"
 #include "afxdialogex.h"
+#include "ScanResult.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -55,6 +56,7 @@ CDialogTestBenchDlg::CDialogTestBenchDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_DIALOGTESTBENCH_DIALOG, pParent)
 	, m_pPopupDialog(nullptr)
 	, m_bPercent(false)
+	, m_bIpScan(false)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -70,6 +72,7 @@ BEGIN_MESSAGE_MAP(CDialogTestBenchDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_OPEN_POPUP_DIALOG, &CDialogTestBenchDlg::OnBnClickedOpenPopupDialog)
 	ON_BN_CLICKED(IDC_RUN_TESTS, &CDialogTestBenchDlg::OnBnClickedRunTests)
+	ON_BN_CLICKED(IDOK, &CDialogTestBenchDlg::OnBnClickedOk)
 END_MESSAGE_MAP()
 
 
@@ -172,14 +175,22 @@ void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 	{
 		if (dlg.HasResult())
 		{
-			SELECTED_RESULT result = dlg.GetSelectedResult();
+			int idx = dlg.GetSelectedIndex();
 			CString msg;
 			if (IsIpScan())
-				msg.Format(_T("Selected IP: %s\nDevice ID: %s\nSerial Number: %s"),
-					result.portName, result.devId, result.sn);
-			else
-				msg.Format(_T("Selected Port: %s\nDevice ID: %s\nSerial Number: %s"),
-					result.portName, result.devId, result.sn);
+			{
+				IpScanResult result;
+				ScanResults::GetScanResults()->GetResult(idx, result);
+				msg.Format(_T("Selected IP: %S\nDevice ID: %S\nSerial Number: %S"),
+					result.GetIp().c_str(), result.GetDeviceId().c_str(), result.GetSerialNumber().c_str());
+			}
+			else // Com-Port
+			{
+				ComportResult result;
+				ScanResults::GetScanResults()->GetResult(idx, result);
+				msg.Format(_T("Selected Port: %S\nDevice ID: %S\nSerial Number: %S"),
+					result.GetPortName().c_str(), result.GetDeviceId().c_str(), result.GetSerialNumber().c_str());
+			}
 			AfxMessageBox(msg);
 		}
 		else
@@ -190,4 +201,10 @@ void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 void CDialogTestBenchDlg::OnBnClickedRunTests()
 {
 	SendMessage(WM_TEST_ALL, 0, LPARAM(this));
+}
+
+void CDialogTestBenchDlg::OnBnClickedOk()
+{
+	ScanResults::GetScanResults()->Release();
+	CDialogEx::OnOK();
 }
