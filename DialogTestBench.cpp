@@ -21,6 +21,18 @@ END_MESSAGE_MAP()
 
 // CDialogTestBenchApp-Erstellung
 
+void CDialogTestBenchApp::Usage(LPWSTR prog)
+{
+	CString msg;
+	msg.Format(_T("Usage: %s [-h] [-p] [-c|-i]\n")
+		_T("  -h : Show help\n")
+		_T("  -p : Show percentage in progress bar\n")
+		_T("  -c : Scan COM ports (default)\n")
+		_T("  -i : Scan IP addresses\n")
+		_T("\nExample: %s -p -i\n"), prog, prog);
+	AfxMessageBox(msg, MB_ICONINFORMATION);
+}
+
 CDialogTestBenchApp::CDialogTestBenchApp()
 {
 	// Neustart-Manager unterstützen
@@ -95,20 +107,30 @@ BOOL CDialogTestBenchApp::InitInstance()
 				}
 				else if (_wcsicmp(&pArgv[i][1], L"c") == 0)
 				{
+					// COM-Port Scan
 					bIpScan = false;
 				}
 				else if (_wcsicmp(&pArgv[i][1], L"i") == 0)
 				{
 					bIpScan = true; // IP-Scan
 				}
+				else if (_wcsicmp(&pArgv[i][1], L"h") == 0)
+				{
+					Usage(pArgv[0]);
+					return FALSE;
+				}
 				else
 				{
 					// Unbekannter Schalter
+					Usage(pArgv[0]);
+					return FALSE;
 				}
 			}
 			else
 			{
 				// Normales Argument
+				Usage(pArgv[0]);
+				return FALSE;
 			}
 			// Hier können Sie die Argumente weiterverarbeiten
 		}
@@ -116,6 +138,8 @@ BOOL CDialogTestBenchApp::InitInstance()
 	else
 	{
 		bPercent = false;
+		// COM-Port Scan
+		bIpScan = false;
 	}
 
 	CDialogTestBenchDlg dlg;

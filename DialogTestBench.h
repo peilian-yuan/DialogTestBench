@@ -17,6 +17,7 @@
 
 class CDialogTestBenchApp : public CWinApp
 {
+	void Usage(LPWSTR prog);
 public:
 	CDialogTestBenchApp();
 
