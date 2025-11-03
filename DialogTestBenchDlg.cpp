@@ -169,25 +169,25 @@ void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 	// Erstellen und anzeigen Sie das Popup-Dialogfeld
 	dlg.SetShowPercent(m_bPercent);
 	dlg.SetSearchType(static_cast<SEARCH_TYPE>(IsIpScan()));
+	dlg.SetSearchDeviceIds("S1130;S1125;S1132");
 	INT_PTR nResponse = dlg.DoModal();
 
 	if (nResponse == IDOK)
 	{
 		if (dlg.HasResult())
 		{
-			int idx = dlg.GetSelectedIndex();
 			CString msg;
 			if (IsIpScan())
 			{
 				IpScanResult result;
-				ScanResults::GetScanResults()->GetResult(idx, result);
+				ScanResults::GetScanResults()->GetResult(dlg.GetSelectedString(), result);
 				msg.Format(_T("Selected IP: %S\nDevice ID: %S\nSerial Number: %S"),
 					result.GetIp().c_str(), result.GetDeviceId().c_str(), result.GetSerialNumber().c_str());
 			}
 			else // Com-Port
 			{
 				ComportResult result;
-				ScanResults::GetScanResults()->GetResult(idx, result);
+				ScanResults::GetScanResults()->GetResult(dlg.GetSelectedString(), result);
 				msg.Format(_T("Selected Port: %S\nDevice ID: %S\nSerial Number: %S"),
 					result.GetPortName().c_str(), result.GetDeviceId().c_str(), result.GetSerialNumber().c_str());
 			}
