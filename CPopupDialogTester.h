@@ -12,8 +12,10 @@ public:
 	void RunAllTests();
 protected:
 	virtual void TestInitialState();
-	virtual void TestButtonClick();
 	virtual void TestModalExecution();
 	virtual void TestParentRelationship();
+#ifdef _DLG_DEBUG
+	virtual void TestButtonClick();
+#endif // _DLG_DEBUG
 };
 

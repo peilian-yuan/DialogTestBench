@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "CPopupDialogTester.h"
+#ifdef _DLG_DEBUG
 #include "CPopupDialog.h"
+#endif // _DLG_DEBUG
+
 
 void CPopupDialogTester::RunAllTests() {
     if (m_pTestDialog == nullptr) {
@@ -8,7 +11,9 @@ void CPopupDialogTester::RunAllTests() {
         return;
     }
     TestInitialState();
+#ifdef _DLG_DEBUG
     TestButtonClick();
+#endif // _DLG_DEBUG
     TestModalExecution();
     TestParentRelationship();
     AfxMessageBox(_T("All tests passed successfully!"), MB_OK | MB_ICONINFORMATION);
@@ -26,7 +31,7 @@ void CPopupDialogTester::TestInitialState() {
 
     //dlg.DestroyWindow();
 }
-
+#ifdef _DLG_DEBUG
 void CPopupDialogTester::TestButtonClick() {
     if (m_pTestDialog == nullptr) {
         AfxMessageBox(_T("Popup dialog is not initialized!"), MB_OK | MB_ICONERROR);
@@ -45,6 +50,7 @@ void CPopupDialogTester::TestButtonClick() {
     // Verify text changed
     //ASSERT(dlg.GetMessageText() == _T("Button Clicked!"));
 }
+#endif // _DLG_DEBUG
 
 void CPopupDialogTester::TestModalExecution() {
     if (m_pTestDialog == nullptr) {

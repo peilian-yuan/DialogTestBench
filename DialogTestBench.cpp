@@ -29,6 +29,7 @@ void CDialogTestBenchApp::Usage(LPWSTR prog)
 		_T("  -p : Show percentage in progress bar\n")
 		_T("  -c : Scan COM ports (default)\n")
 		_T("  -i : Scan IP addresses\n")
+		_T("  -d : String of searched device ids\n")
 		_T("\nExample: %s -p -i\n"), prog, prog);
 	AfxMessageBox(msg, MB_ICONINFORMATION);
 }
@@ -89,6 +90,7 @@ BOOL CDialogTestBenchApp::InitInstance()
 	LPWSTR* pArgv = ::CommandLineToArgvW(pCommandLine, &nArgc);
 	bool bPercent = false;
 	bool bIpScan = true;
+	CStringA devid = "S1130;S1125;S1132";
 	if (nArgc > 1)
 	{
 		// Es wurden Befehlszeilenargumente übergeben
@@ -100,7 +102,7 @@ BOOL CDialogTestBenchApp::InitInstance()
 			TRACE(_T("Argument %d: %s\n"), i, pArgv[i]);
 			if (pArgv[i][0] == L'-')
 			{
-				// Schalter erkannt
+				// percentage or number of ports
 				if (_wcsicmp(&pArgv[i][1], L"p") == 0)
 				{
 					bPercent = true;
@@ -113,6 +115,11 @@ BOOL CDialogTestBenchApp::InitInstance()
 				else if (_wcsicmp(&pArgv[i][1], L"i") == 0)
 				{
 					bIpScan = true; // IP-Scan
+				}
+				else if (_wcsicmp(&pArgv[i][1], L"d") == 0)
+				{
+					// set searched device id
+					devid = CW2A(pArgv[++i]);
 				}
 				else if (_wcsicmp(&pArgv[i][1], L"h") == 0)
 				{
@@ -145,6 +152,7 @@ BOOL CDialogTestBenchApp::InitInstance()
 	CDialogTestBenchDlg dlg;
 	dlg.SetShowPercent(bPercent);
 	dlg.SetIpScan(bIpScan);
+	dlg.SetSearchedDevIds(devid);
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
