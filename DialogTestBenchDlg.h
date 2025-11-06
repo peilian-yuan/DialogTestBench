@@ -3,14 +3,12 @@
 //
 
 #pragma once
-
+#include "TestBench.h"
 
 // CDialogTestBenchDlg-Dialogfeld
 class CPopupDialog; // Vorwärtsdeklaration für das Popup-Dialogfeld
 class CDialogTestBenchDlg : public CDialogEx
 {
-	bool m_bPercent;
-	bool m_bIpScan;
 public:
 	CDialogTestBenchDlg(CWnd* pParent = nullptr);	// Standardkonstruktor
 
@@ -18,10 +16,19 @@ public:
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_DIALOGTESTBENCH_DIALOG };
 #endif
+#ifdef TEST_AUTO_SCANNER
+private:
+	bool m_bPercent;
+	bool m_bIpScan;
+public:
+	CStringA m_SearchedDevIds;
 	void SetShowPercent(bool b) { m_bPercent = b; }
 	bool GetShowPercent() const { return m_bPercent; }
 	void SetIpScan(bool b) { m_bIpScan = b; }
 	bool IsIpScan() const { return m_bIpScan; }
+	void SetSearchedDevIds(CStringA dids) { m_SearchedDevIds = dids; }
+	CStringA GetSearchedDevIds() const { return m_SearchedDevIds; }
+#endif // TEST_AUTO_SCANNER
 
 // Implementierung
 protected:

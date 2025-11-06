@@ -36,6 +36,12 @@
     <ClInclude Include="CPopupDialogTester.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="..\DeviceScanner\auto_detect_res.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBench.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DialogTestBench.cpp">
@@ -53,9 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DialogTestBench.rc">
-      <Filter>Ressourcendateien</Filter>
-    </ResourceCompile>
-    <ResourceCompile Include="..\DeviceScanner\dialog.rc">
       <Filter>Ressourcendateien</Filter>
     </ResourceCompile>
   </ItemGroup>

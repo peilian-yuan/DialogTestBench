@@ -6,9 +6,11 @@
 #include "framework.h"
 #include "DialogTestBench.h"
 #include "DialogTestBenchDlg.h"
-#include "CSearchDialog.h"
 #include "afxdialogex.h"
+#ifdef TEST_AUTO_SCANNER
+#include "CSearchDialog.h"
 #include "ScanResult.h"
+#endif // TEST_AUTO_SCANNER
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -55,8 +57,11 @@ END_MESSAGE_MAP()
 CDialogTestBenchDlg::CDialogTestBenchDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_DIALOGTESTBENCH_DIALOG, pParent)
 	, m_pPopupDialog(nullptr)
+#ifdef TEST_AUTO_SCANNER
 	, m_bPercent(false)
 	, m_bIpScan(false)
+	, m_SearchedDevIds("")
+#endif // TEST_AUTO_SCANNER
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -161,22 +166,24 @@ HCURSOR CDialogTestBenchDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
 void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 {
+#ifdef TEST_AUTO_SCANNER
 	// Erstellen Sie das Popup-Dialogfeld und zeigen Sie es an, Parameter ist Instanz von CDialogTestBenchDlg als Elternfenster
 	CSearchDialog dlg(AfxGetMainWnd());
 	// Erstellen und anzeigen Sie das Popup-Dialogfeld
 	dlg.SetShowPercent(m_bPercent);
 	dlg.SetSearchType(static_cast<SEARCH_TYPE>(IsIpScan()));
-	dlg.SetSearchDeviceIds("S1130;S1125;S1132");
+	dlg.SetSearchDeviceIds(m_SearchedDevIds);
+	CString msg;
+	msg.Format(_T("Starting scan %s, this may take a while..."), (m_SearchedDevIds.IsEmpty() ? _T("") : CString(m_SearchedDevIds).GetString()));
+	AfxMessageBox(msg);
 	INT_PTR nResponse = dlg.DoModal();
 
 	if (nResponse == IDOK)
 	{
-		if (dlg.HasResult())
+		if (dlg.FoundInstrument())
 		{
-			CString msg;
 			if (IsIpScan())
 			{
 				IpScanResult result;
@@ -196,6 +203,7 @@ void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 		else
 			AfxMessageBox(_T("No result found!"));
 	}
+#endif // TEST_AUTO_SCANNER
 }
 
 void CDialogTestBenchDlg::OnBnClickedRunTests()

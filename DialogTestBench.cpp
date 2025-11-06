@@ -90,7 +90,7 @@ BOOL CDialogTestBenchApp::InitInstance()
 	LPWSTR* pArgv = ::CommandLineToArgvW(pCommandLine, &nArgc);
 	bool bPercent = false;
 	bool bIpScan = true;
-	CStringA devid = "S1130;S1125;S1132";
+	CStringA devid;
 	if (nArgc > 1)
 	{
 		// Es wurden Befehlszeilenargumente übergeben
