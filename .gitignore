@@ -36,6 +36,8 @@ bld/
 [Ll]og/
 [Ll]ogs/
 lib*/
+DlgRelease/
+DlgDebug/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/

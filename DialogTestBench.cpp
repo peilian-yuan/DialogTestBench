@@ -24,7 +24,7 @@ END_MESSAGE_MAP()
 void CDialogTestBenchApp::Usage(LPWSTR prog)
 {
 	CString msg;
-	msg.Format(_T("Usage: %s [-h] [-p] [-c|-i]\n")
+	msg.Format(_T("Usage: %s [-h] [-p] [-c|-i] [-d DEV_IDS]\n")
 		_T("  -h : Show help\n")
 		_T("  -p : Show percentage in progress bar\n")
 		_T("  -c : Scan COM ports (default)\n")

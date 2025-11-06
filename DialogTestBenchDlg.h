@@ -3,7 +3,6 @@
 //
 
 #pragma once
-#include "TestBench.h"
 
 // CDialogTestBenchDlg-Dialogfeld
 class CPopupDialog; // Vorwärtsdeklaration für das Popup-Dialogfeld

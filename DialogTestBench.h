@@ -9,7 +9,6 @@
 #endif
 
 #include "resource.h"		// Hauptsymbole
-#include "TestBench.h"
 
 
 // CDialogTestBenchApp:
