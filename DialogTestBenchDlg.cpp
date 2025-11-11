@@ -171,7 +171,7 @@ void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 #ifdef TEST_AUTO_SCANNER
 	// Erstellen Sie das Popup-Dialogfeld und zeigen Sie es an, Parameter ist Instanz von CDialogTestBenchDlg als Elternfenster
 	CSearchDialog dlg(AfxGetMainWnd());
-	// Erstellen und anzeigen Sie das Popup-Dialogfeld
+	// Erstellen und anzeigen Sie das Popup-Dialogfeld	
 	dlg.SetShowPercent(m_bPercent);
 	dlg.SetSearchType(static_cast<SEARCH_TYPE>(IsIpScan()));
 	dlg.SetSearchDeviceIds(m_SearchedDevIds);

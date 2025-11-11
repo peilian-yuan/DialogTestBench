@@ -4,7 +4,11 @@
     <RESOURCE_FILE>DialogTestBench.rc</RESOURCE_FILE>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DlgDebug|Win32'">
-    <LocalDebuggerCommandArguments>-i -p</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-i -d S3350;S3345 -p</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DlgRelease|Win32'">
+    <LocalDebuggerCommandArguments>-i -d S3350;S3345 -p</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
