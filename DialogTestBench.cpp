@@ -150,9 +150,11 @@ BOOL CDialogTestBenchApp::InitInstance()
 	}
 
 	CDialogTestBenchDlg dlg;
+#ifdef TEST_AUTO_SCANNER
 	dlg.SetShowPercent(bPercent);
 	dlg.SetIpScan(bIpScan);
 	dlg.SetSearchedDevIds(devid);
+#endif
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

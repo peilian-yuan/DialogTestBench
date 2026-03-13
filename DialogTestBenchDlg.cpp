@@ -170,14 +170,23 @@ void CDialogTestBenchDlg::OnBnClickedOpenPopupDialog()
 {
 #ifdef TEST_AUTO_SCANNER
 	// Erstellen Sie das Popup-Dialogfeld und zeigen Sie es an, Parameter ist Instanz von CDialogTestBenchDlg als Elternfenster
-	CSearchDialog dlg(AfxGetMainWnd());
+	CSearchDialog dlg(AfxGetMainWnd(), true);
 	// Erstellen und anzeigen Sie das Popup-Dialogfeld	
-	dlg.SetShowPercent(m_bPercent);
-	dlg.SetSearchType(static_cast<SEARCH_TYPE>(IsIpScan()));
+	//dlg.SetShowPercent(m_bPercent);
+	//dlg.SetSearchType(static_cast<SEARCH_TYPE>(IsIpScan()));
 	dlg.SetSearchDeviceIds(m_SearchedDevIds);
 	CString msg;
-	msg.Format(_T("Starting scan %s, this may take a while..."), (m_SearchedDevIds.IsEmpty() ? _T("") : CString(m_SearchedDevIds).GetString()));
-	AfxMessageBox(msg);
+	//msg.Format(_T("Starting scan %s, this may take a while..."), (m_SearchedDevIds.IsEmpty() ? _T("") : CString(m_SearchedDevIds).GetString()));
+	//AfxMessageBox(msg);
+	//dlg.SetConnectCallback([&](void* pParam) {
+	//	if (dlg.FoundInstrument())
+	//	{
+	//		ComportResult result;
+	//		ScanResults::GetScanResults()->GetResult(dlg.GetSelectedString(), result);
+	//	}
+	//	else
+	//		AfxMessageBox(_T("No Device found!"));
+	//	});
 	INT_PTR nResponse = dlg.DoModal();
 
 	if (nResponse == IDOK)

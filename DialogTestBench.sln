@@ -4,8 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.14.36408.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DialogTestBench", "DialogTestBench.vcxproj", "{3D802092-0B30-F9BD-CAB5-B486C6388B37}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CF5D91CE-F685-430C-96DE-F303E8CF80B4} = {CF5D91CE-F685-430C-96DE-F303E8CF80B4}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{1723FD3C-92BD-E27E-67A3-92BABFB90E1A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DeviceScanner", "..\DeviceScanner\DeviceScanner.vcxproj", "{CF5D91CE-F685-430C-96DE-F303E8CF80B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,8 +23,11 @@ Global
 		{3D802092-0B30-F9BD-CAB5-B486C6388B37}.DlgRelease|Win32.ActiveCfg = DlgRelease|Win32
 		{3D802092-0B30-F9BD-CAB5-B486C6388B37}.DlgRelease|Win32.Build.0 = DlgRelease|Win32
 		{1723FD3C-92BD-E27E-67A3-92BABFB90E1A}.DlgDebug|Win32.ActiveCfg = DlgDebug|Win32
-		{1723FD3C-92BD-E27E-67A3-92BABFB90E1A}.DlgDebug|Win32.Build.0 = DlgDebug|Win32
 		{1723FD3C-92BD-E27E-67A3-92BABFB90E1A}.DlgRelease|Win32.ActiveCfg = Release|Win32
+		{CF5D91CE-F685-430C-96DE-F303E8CF80B4}.DlgDebug|Win32.ActiveCfg = DlgDebug|Win32
+		{CF5D91CE-F685-430C-96DE-F303E8CF80B4}.DlgDebug|Win32.Build.0 = DlgDebug|Win32
+		{CF5D91CE-F685-430C-96DE-F303E8CF80B4}.DlgRelease|Win32.ActiveCfg = lib|Win32
+		{CF5D91CE-F685-430C-96DE-F303E8CF80B4}.DlgRelease|Win32.Build.0 = lib|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
