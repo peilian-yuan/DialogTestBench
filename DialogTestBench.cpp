@@ -30,6 +30,7 @@ void CDialogTestBenchApp::Usage(LPWSTR prog)
 		_T("  -c : Scan COM ports (default)\n")
 		_T("  -i : Scan IP addresses\n")
 		_T("  -d : String of searched device ids\n")
+		_T("  -r : Use LRC (default: disabled)\n")
 		_T("\nExample: %s -p -i\n"), prog, prog);
 	AfxMessageBox(msg, MB_ICONINFORMATION);
 }
@@ -90,6 +91,7 @@ BOOL CDialogTestBenchApp::InitInstance()
 	LPWSTR* pArgv = ::CommandLineToArgvW(pCommandLine, &nArgc);
 	bool bPercent = false;
 	bool bIpScan = true;
+	bool bUseLRC = false;
 	CStringA devid;
 	if (nArgc > 1)
 	{
@@ -120,6 +122,11 @@ BOOL CDialogTestBenchApp::InitInstance()
 				{
 					// set searched device id
 					devid = CW2A(pArgv[++i]);
+				}
+				else if (_wcsicmp(&pArgv[i][1], L"r") == 0)
+				{
+					// set LRC usage
+					bUseLRC = true;
 				}
 				else if (_wcsicmp(&pArgv[i][1], L"h") == 0)
 				{
@@ -154,6 +161,7 @@ BOOL CDialogTestBenchApp::InitInstance()
 	dlg.SetShowPercent(bPercent);
 	dlg.SetIpScan(bIpScan);
 	dlg.SetSearchedDevIds(devid);
+	dlg.SetUseLRC(bUseLRC);
 #endif
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();

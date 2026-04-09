@@ -19,6 +19,7 @@ public:
 private:
 	bool m_bPercent;
 	bool m_bIpScan;
+	bool m_bUseLRC;
 public:
 	CStringA m_SearchedDevIds;
 	void SetShowPercent(bool b) { m_bPercent = b; }
@@ -26,6 +27,8 @@ public:
 	void SetIpScan(bool b) { m_bIpScan = b; }
 	bool IsIpScan() const { return m_bIpScan; }
 	void SetSearchedDevIds(CStringA dids) { m_SearchedDevIds = dids; }
+	void SetUseLRC(bool b) { m_bUseLRC = b; }
+	bool IsUseLRC() const { return m_bUseLRC; }
 	CStringA GetSearchedDevIds() const { return m_SearchedDevIds; }
 #endif // TEST_AUTO_SCANNER
 
